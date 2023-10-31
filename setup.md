@@ -16,3 +16,18 @@
  ## validation -  DTO object
  npm i class-validator class-transformer<br/>
  user -> dto -> create-user.dto.ts <br/>
+ 
+ ## docker-compose.yml create for mysql
+ docker compose up -d<br/>
+ ## create .env
+
+ ## necessary for typeorm 
+ npm --save @nestjs/typeorm typeorm mysql2
+
+ ## then setup typeormmodule.forRoot in appmodule
+
+ ## user->entities 
+ user.entity.ts <br/>
+
+ ## uuid
+ npm i uuid --save
