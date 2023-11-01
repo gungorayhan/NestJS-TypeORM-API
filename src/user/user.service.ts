@@ -26,6 +26,7 @@ export class UserService {
         newUser.id=uuidv4();
         newUser.name=createUserDto.name;
         newUser.email=createUserDto.email;
+        newUser.birthday=createUserDto.birthday;
         await this.userRepository.save(newUser);
         //this.logger.warn(JSON.stringify(newUser));
         return {message:'Saved', newUser};
