@@ -3,7 +3,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { User } from './entities/user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { v4 as uuidv4 } from 'uuid';
+
 import { UpdateUserDto } from './dto/update-user-dto';
 
 @Injectable()
@@ -23,10 +23,10 @@ export class UserService {
 
     async create(createUserDto: CreateUserDto){
         const newUser = await this.userRepository.create();
-        newUser.id=uuidv4();
+        // newUser.id=uuidv4();
         newUser.name=createUserDto.name;
         newUser.email=createUserDto.email;
-        newUser.birthday=createUserDto.birthday;
+        // newUser.birtday=createUserDto.birtday;
         await this.userRepository.save(newUser);
         //this.logger.warn(JSON.stringify(newUser));
         return {message:'Saved', newUser};
@@ -49,7 +49,7 @@ export class UserService {
         
     }
 
-    async delete(userId:string){
-        return this.userRepository.softDelete(userId);
+    async delete(id:string){
+        return await this.userRepository.softDelete(id);
     }
 }

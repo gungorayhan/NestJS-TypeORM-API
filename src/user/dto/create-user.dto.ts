@@ -1,16 +1,16 @@
 import { IsEmail, IsNotEmpty, IsString, IsDate, IsDateString } from 'class-validator';
-import { IsAdult } from './user.validation';
+// import { IsAdult } from './user.validation';
 
 export class CreateUserDto {
-    @IsNotEmpty();
-    @IsString();
+    @IsNotEmpty()
+    @IsString()
     name: string;
 
-    @IsEmail();
+    @IsEmail()
     email: string;
 
-    @IsDateString();
-    @IsAdult({message: 'Kayıt için 18 yaşından büyük olmalı'});
-    birthday: Date;
+    // @IsDateString()
+    // // @IsAdult({message: 'Kayıt için 18 yaşından büyük olmalı'});
+    // birtday: Date;
 
 }

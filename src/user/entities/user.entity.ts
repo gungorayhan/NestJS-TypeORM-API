@@ -1,10 +1,12 @@
-import { Entity, Column, PrimaryColumn,CreateDateColumn,DeleteDateColumn,UpdateDateColumn } from "typeorm";
+import { BetaBaseEntity } from "src/entities/beta.base.entity";
+import { Product } from "src/product/entities/product.entity";
+import { Entity, Column, PrimaryColumn,CreateDateColumn,DeleteDateColumn,UpdateDateColumn,OneToMany } from "typeorm";
 
 @Entity()
-export class User{
+export class User extends BetaBaseEntity{
     
-    @PrimaryColumn()
-    id:string;
+    // @PrimaryColumn()
+    // id:string;
 
     @Column()
     name:string;
@@ -12,17 +14,19 @@ export class User{
     @Column()
     email:string;
 
-    @Column()
-    birthdate:string;
+    // @Column()
+    // birtday:string;
 
-    @CreateDateColumn()
-    createdAt!:Date;
+    // @CreateDateColumn()
+    // createdAt!:Date;
 
-    @UpdateDateColumn()
-    updated!:Date;
+    // @UpdateDateColumn()
+    // updated!:Date;
 
-    @DeleteDateColumn()
-    deletedAt!:Date;
+    // @DeleteDateColumn()
+    // deletedAt!:Date;
 
+    @OneToMany(()=>Product,(product)=>product.user)
+    products:Product[];
 
 }

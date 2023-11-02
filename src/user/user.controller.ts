@@ -19,15 +19,15 @@ export class UserController {
 
     @Put(':id')
     update(
-        @Param('id') userId:string,
+        @Param('id') id:string,
         @Body() updateUserDto:UpdateUserDto){
-            updateUserDto.id=userId;
+            updateUserDto.id=id;
         return this.userService.update(updateUserDto);
     }
 
     @Delete(':id')
-    delete(@Param('id') userId:string){
-        return this.userService.delete(userId)
+    delete(@Param('id') id:string){
+        return this.userService.delete(id)
     }
 
 }
