@@ -38,4 +38,9 @@ export class Product extends BetaBaseEntity {
      @Column()
      categoryId:string;
 
+     @Column()
+     descriptions:string;
+
+     @Column()
+     imageUrl:string;
 }

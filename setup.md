@@ -60,4 +60,30 @@
  service -> contructor ->@InjectRepository(Category) private readonly categoryRepository:Repository<Category> <br/>
 
  ## category not found exception 
+ import {HttpException, HttpStatus} from "@nestjs/common"<br/>
 
+ ## typeorm
+-object-relational mapping<br/>
+-multidatabase support<br/>
+-migrotions <br/>
+-advanced querying and relatiional operations<br/>
+-built-in validation and query builder<br/>
+-active community and extensive documentation<br/>
+-cross-latform compatibility<br/>
+-testability and integration ease<br/>
+
+## create db folder 
+add data-soruce.config.ts ->getConfig(type,host,port,username,password,database,entities,migrations,synchronize) setting with typeorm
+add data-source.ts -> apply getConfig() in DataSource
+
+## packagejson -> scripts
+"typeorm":"npx typeorm -d dist/db/data-source.js", <br/>
+"migration:generate":"npm run typeorm migration:generate", up-create<br/>
+"migration:run":"npm run typeorm migration:run",<br/> -run again
+"migration:revert":"npm run typeorm --migration:revert" down-delete<br/>
+
+## script codes run from new terminal while nest start --watcth
+npm run migration:generate -- db/migarations/product <br/>
+
+## make new version again
+npm run migration:generate -- db/migarations/productImage <br/>
